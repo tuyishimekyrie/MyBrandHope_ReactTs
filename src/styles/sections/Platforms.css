@@ -1,0 +1,112 @@
+/* Platforms section styles */
+.platforms {
+  padding: 2rem 4rem;
+  position: relative;
+}
+.platforms h3,
+p {
+  text-align: center;
+  padding: 1rem 0 0 0;
+}
+.platforms::before {
+  content: ""; /* Add content property for pseudo-elements */
+  background-image: url("../../assets/Ellipse 1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 28rem;
+  height: 5rem;
+  position: absolute;
+  /* top: 0rem; */
+  right: 32vw;
+  z-index: -1;
+}
+.platform-content {
+  display: flex;
+  justify-content: space-between;
+  /* flex-wrap: wrap; */
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 0 0 0;
+}
+.platform-content .application img {
+  width: 12vw;
+  margin-left: 5vw;
+}
+.application h2 {
+  padding: 1rem 0;
+}
+.application h5 {
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 768px) {
+  .platforms::before {
+    content: ""; /* Add content property for pseudo-elements */
+    background-image: url("../../assets/Ellipse 1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 28rem;
+    height: 6rem;
+    position: absolute;
+    /* top: 0rem; */
+    right: 20vw;
+    z-index: -1;
+  }
+  .platform-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 0 0 0;
+  }
+  .platform-content .application img {
+  width: 20vw;
+  margin-left: 30vw;
+}
+.application h2 {
+  font-size:1rem;
+  padding: 1rem 0;
+}
+.application h5 {
+  font-size: .65rem;
+  font-weight: 400;
+}
+}
+@media only screen and (max-width: 468px) {
+  .platforms::before {
+    content: ""; /* Add content property for pseudo-elements */
+    background-image: url("../../assets/Ellipse 1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 25rem;
+    height: 5rem;
+    position: absolute;
+    /* top: 0rem; */
+    right: 1vw;
+    z-index: -1;
+  }
+  .platform-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 0 0 0;
+  }
+    .platform-content .application img {
+  width: 20vw;
+  margin-left: 15vw;
+}
+.application h2 {
+  font-size:.8rem;
+  padding: 1rem 0;
+}
+.application h5 {
+  font-size: .65rem;
+  font-weight: 400;
+}
+}

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { CallToAction } from "../components/CallToAction";
 import AboutMe from "../components/AboutMe";
 import Skills from "../components/Skills";
+import Platforms from "../components/Platforms";
 
 export const Home = () => {
   return (
@@ -34,7 +35,8 @@ export const Home = () => {
         </div>
           </main>
           <AboutMe />
-          <Skills/>
+          <Skills />
+          <Platforms/>
       <CallToAction />
       <Footer />
     </div>
