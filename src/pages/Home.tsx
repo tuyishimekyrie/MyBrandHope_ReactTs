@@ -6,6 +6,7 @@ import Hero from "../assets/herotest.png";
 import { Link } from "react-router-dom";
 import { CallToAction } from "../components/CallToAction";
 import AboutMe from "../components/AboutMe";
+import Skills from "../components/Skills";
 
 export const Home = () => {
   return (
@@ -32,7 +33,8 @@ export const Home = () => {
           <img src={Hero} alt="" />
         </div>
           </main>
-          <AboutMe/>
+          <AboutMe />
+          <Skills/>
       <CallToAction />
       <Footer />
     </div>
