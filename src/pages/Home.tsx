@@ -5,6 +5,7 @@ import "../styles/sections/Home.css";
 import Hero from "../assets/herotest.png";
 import { Link } from "react-router-dom";
 import { CallToAction } from "../components/CallToAction";
+import AboutMe from "../components/AboutMe";
 
 export const Home = () => {
   return (
@@ -30,7 +31,8 @@ export const Home = () => {
         <div className="hero-image">
           <img src={Hero} alt="" />
         </div>
-      </main>
+          </main>
+          <AboutMe/>
       <CallToAction />
       <Footer />
     </div>
