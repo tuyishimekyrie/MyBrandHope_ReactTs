@@ -1,0 +1,132 @@
+.App{  background-image: url("./assets/bg-grid-lighter.svg");
+  /* background:red; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;}
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2rem 4rem;
+  gap: 2rem;
+}
+.hero-image img {
+  width: 40vw;
+  object-fit: cover;
+}
+.hero-content {
+  padding: 1rem 0 0 0.5rem;
+}
+.hero-content .hello {
+    color: #9E7CFF;
+}
+.hero-content .name {
+    padding: .85rem 0 1.5rem 0 ;
+    color: rgba(255,255,255,.81);
+}
+.hero-content h1 {
+  font-size: 3.4vw;
+}
+.hero-content h1,
+h4 {
+  font-family: "Outfit", sans-serif;
+}
+.hero-content span {
+  color: #16f8b6;
+  font-family: "outfit";
+}
+.hero-content h4 {
+  padding: 1rem 0 0 0;
+  color: rgb(255, 255, 255, 0.9);
+  font-weight: 400;
+  font-size: 1.35vw;
+}
+.bookCall {
+  background-color: rgb(130,68,255,.3);
+  color: #ffff;
+  padding: 0.8rem 2rem;
+  border-radius: 5rem;
+  border: none;
+  margin: 1.5rem 0 0 0vw;
+}
+.bookCall:hover{
+  cursor: pointer;
+   background-color: rgb(130,68,255,.9);
+}
+.my-names {
+  padding: 3rem 0;
+  text-align: center;
+}
+.my-names p {
+  color: #9e7cff;
+}
+.my-names h4 {
+  padding: 0.5rem 0;
+}
+
+@media only screen and (max-width: 768px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-image img {
+    width: 50vw;
+    object-fit: cover;
+  }
+  .hero-content h4 {
+    padding: 1rem 0 0 0;
+    color: rgb(255, 255, 255, 0.9);
+    font-weight: 400;
+    font-size: 2.35vw;
+  }
+  .bookCall {
+  background-color: rgb(130,68,255,.3);
+  color: #ffff;
+  padding: 0.8rem 2rem;
+  border-radius: 5rem;
+  border: none;
+  font-size: .65rem;
+  margin: 1.5rem 0 0 0vw;
+}
+}
+@media only screen and (max-width: 768px) {
+  .hero-content {
+    /* margin: 0; */
+    padding: 1rem  1rem 0rem 2rem
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    /* padding: 0; */
+  }
+  .hero-image{
+    padding: 0  1rem 0 2rem;
+  }
+  .hero-image img {
+    width: 100%;
+    object-fit: cover;
+  }
+  .hero-content h1 {
+    /* padding: 1rem 0 0 0; */
+    /* color: rgb(255, 255, 255, 0.9); */
+    /* font-weight: 400; */
+    font-size: 5vw;
+  }
+  .hero-content h4 {
+    padding: 1rem 0 0 0;
+    color: rgb(255, 255, 255, 0.9);
+    font-weight: 400;
+    font-size: 3.5vw;
+  }
+}
+
+@media only screen and (max-width: 468px) {
+  .my-names {
+    padding: 2.5rem 2rem;
+  }
+}
