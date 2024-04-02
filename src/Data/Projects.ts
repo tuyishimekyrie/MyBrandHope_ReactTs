@@ -23,3 +23,43 @@ export const projects = [
     site: "https://example.com/project1",
   },
 ];
+
+export const portfolios = [
+  {
+    image: project1Image,
+    heading: "Kora Finance Management Application",
+    desc: "A centralized dashboard offering an overview of key business metrics, performance indicators, and important alerts. Customizable widgets for users to tailor the dashboard to their specific needs.",
+    site: "https://example.com/project1",
+  },
+  {
+    image: project2Image,
+    heading: "Business Management Application",
+    desc: "A centralized dashboard offering an overview of key business metrics, performance indicators, and important alerts. Customizable widgets for users to tailor the dashboard to their specific needs.",
+    site: "https://example.com/project1",
+  },
+  {
+    image: project2Image,
+    heading: "Business Management Application",
+    desc: "A centralized dashboard offering an overview of key business metrics, performance indicators, and important alerts. Customizable widgets for users to tailor the dashboard to their specific needs.",
+    site: "https://example.com/project1",
+  },
+  {
+    image: project2Image,
+    heading: "Business Management Application",
+    desc: "A centralized dashboard offering an overview of key business metrics, performance indicators, and important alerts. Customizable widgets for users to tailor the dashboard to their specific needs.",
+    site: "https://example.com/project1",
+  },
+  {
+    image: project2Image,
+    heading: "Business Management Application",
+    desc: "A centralized dashboard offering an overview of key business metrics, performance indicators, and important alerts. Customizable widgets for users to tailor the dashboard to their specific needs.",
+    site: "https://example.com/project1",
+  },
+  {
+    image: project2Image,
+    heading: "Business Management Application",
+    desc: "A centralized dashboard offering an overview of key business metrics, performance indicators, and important alerts. Customizable widgets for users to tailor the dashboard to their specific needs.",
+    site: "https://example.com/project1",
+  },
+  
+];
