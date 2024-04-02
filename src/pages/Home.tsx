@@ -8,6 +8,7 @@ import { CallToAction } from "../components/CallToAction";
 import AboutMe from "../components/AboutMe";
 import Skills from "../components/Skills";
 import Platforms from "../components/Platforms";
+import Projects from "../components/Projects";
 
 export const Home = () => {
   return (
@@ -36,7 +37,8 @@ export const Home = () => {
           </main>
           <AboutMe />
           <Skills />
-          <Platforms/>
+          <Platforms />
+          <Projects/>
       <CallToAction />
       <Footer />
     </div>

@@ -1,0 +1,133 @@
+
+/* projects section styles */
+.projects {
+  padding: 2rem 4rem;
+  position: relative;
+}
+.projects h3,
+p {
+  text-align: center;
+  padding: 1rem 0 0 0;
+}
+.projects::before {
+  content: ""; /* Add content property for pseudo-elements */
+  background-image: url("../../assets/Ellipse 1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 28rem;
+  height: 8rem;
+  position: absolute;
+  /* top: 0rem; */
+  right: 32vw;
+  z-index: -1;
+}
+.projects-content {
+  display: flex;
+  justify-content: space-between;
+  /* flex-wrap: wrap; */
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 0 0 0;
+}
+.projects-content .project img {
+  width: 40vw;
+  /* height: 12rem; */
+  object-fit: cover;
+  align-self: center;
+}
+.project h2 {
+  padding: 1rem 0;
+}
+.project h5 {
+  font-weight: 400;
+  padding: 0 0 1rem 0;
+  margin-bottom: 1.2rem
+}
+ .site {
+  background-color: #5887ff;
+  color: #ffff;
+  padding: 0.85rem 2rem;
+  border-radius: 5rem;
+  border: none;
+}
+.projects .see-more {
+  background-color: #8244ff;
+  color: #ffff;
+  padding: 0.85rem 2rem;
+  border-radius: 5rem;
+  border: none;
+  margin: 4rem 0 0 38.5vw;
+}
+@media only screen and (max-width: 768px) {
+  .project h2 {
+    padding: 1rem 0;
+    font-size: 1rem;
+  }
+  .project h5 {
+    font-size: 0.7rem;
+    font-weight: 400;
+    padding: 0 0 1rem 0;
+  }
+  .projects::before {
+    content: ""; /* Add content property for pseudo-elements */
+    background-image: url("../../assets/Ellipse 1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 30rem;
+    height: 10rem;
+    position: absolute;
+    /* top: 0rem; */
+    right: 8vw;
+    z-index: -1;
+  }
+  .projects-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0rem 0rem 0;
+  }
+  .project .site {
+    background-color: #5887ff;
+    color: #ffff;
+    padding: 0.5rem 1.2rem;
+    border-radius: 5rem;
+    border: none;
+    margin-top: 1.2rem
+  }
+  .projects .see-more {
+    background-color: #8244ff;
+    color: #ffff;
+    padding: 0.5rem 1.2rem;
+    border-radius: 5rem;
+    border: none;
+    margin: 5rem 0 0 30vw;
+  }
+}
+
+@media only screen and (max-width: 468px )  {
+  .projects .see-more {
+  background-color: #8244ff;
+  color: #ffff;
+  padding: 0.85rem 2rem;
+  border-radius: 5rem;
+  border: none;
+  margin: 4rem 0 0 10vw;
+}
+  .projects::before {
+    content: ""; /* Add content property for pseudo-elements */
+    background-image: url("../../assets/Ellipse 1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20rem;
+    height: 5rem;
+    position: absolute;
+    /* top: 0rem; */
+    left: -10vw;
+    z-index: -1;
+  }
+}
