@@ -9,6 +9,7 @@ import AboutMe from "../components/AboutMe";
 import Skills from "../components/Skills";
 import Platforms from "../components/Platforms";
 import Projects from "../components/Projects";
+import Testimonial from "../components/Testimonial";
 
 export const Home = () => {
   return (
@@ -34,11 +35,12 @@ export const Home = () => {
         <div className="hero-image">
           <img src={Hero} alt="" />
         </div>
-          </main>
-          <AboutMe />
-          <Skills />
-          <Platforms />
-          <Projects/>
+      </main>
+      <AboutMe />
+      <Skills />
+      <Platforms />
+      <Projects />
+      <Testimonial />
       <CallToAction />
       <Footer />
     </div>

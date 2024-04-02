@@ -1,0 +1,170 @@
+.testimonials {
+  padding: 4rem;
+  position: relative;
+}
+.testimonials h3,
+p {
+  text-align: center;
+  padding: 1rem 0 0 0;
+}
+.testimonials::before {
+  content: ""; /* Add content property for pseudo-elements */
+  background-image: url("../../assests/Ellipse 1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25rem;
+  height: 5rem;
+  position: absolute;
+  /* top: 0rem; */
+  right: 34.5vw;
+  z-index: -1;
+}
+.testimonials-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 3rem 0 0 0;
+}
+.testimonial {
+  border: 1px solid rgb(255, 255, 255, 0.6);
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 29vw;
+}
+.testimonial h5 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 0 0 0.5rem 0;
+}
+.testimonial p {
+  text-align: start;
+  color: rgb(255, 255, 255, 0.6);
+}
+.client {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem 0 0 0;
+}
+.client img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 5rem;
+  object-fit: fill;
+}
+
+.client h5 {
+  font-weight: 400;
+  font-size: 1rem;
+}
+.client p {
+  font-weight: 400;
+  color: rgb(255, 255, 255, 0.8);
+}
+@media only screen and (max-width: 768px) {
+  .testimonials {
+  padding: 2rem;
+  position: relative;
+}
+  .testimonials::before {
+    content: ""; /* Add content property for pseudo-elements */
+    background-image: url("../../assests/Ellipse 1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 30rem;
+    height: 10rem;
+    position: absolute;
+    /* top: 0rem; */
+    right: 10vw;
+    z-index: -1;
+  }
+  .testimonials-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 0 0 0;
+  }
+  .testimonial {
+    width: 60vw;
+  }
+  .testimonial h5 {
+    font-size: 1rem;
+    font-weight: 200;
+  }
+  .client h5 {
+    font-weight: 200;
+    font-size: 0.85rem;
+  }
+  .client p {
+    font-weight: 300;
+    color: rgb(255, 255, 255, 0.8);
+  }
+  .client img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 5rem;
+  object-fit: fill;
+}
+}
+@media only screen and (max-width: 468px) {
+  .testimonials {
+  padding: 1.5rem;
+  position: relative;
+}
+  .testimonials::before {
+    content: ""; /* Add content property for pseudo-elements */
+    background-image: url("../../assests/Ellipse 1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 25rem;
+    height: 5rem;
+    position: absolute;
+    /* top: 0rem; */
+    right: 5vw;
+    z-index: -1;
+  }
+  .testimonials-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 0 0 0;
+  }
+    .testimonial {
+    width: 60vw;
+  }
+  .testimonial h5 {
+    font-size: .85rem;
+    font-weight: 200;
+  }
+  .client {
+    display: flex;
+    flex-direction: column
+  }
+  .client h5 {
+    font-weight: 200;
+    font-size: 0.65rem;
+  }
+  .client p {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: rgb(255, 255, 255, 0.8);
+  }
+  .client img {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 5rem;
+  object-fit: fill;
+}
+}
