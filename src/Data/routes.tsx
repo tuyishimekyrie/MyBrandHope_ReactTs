@@ -9,6 +9,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import { Portfolio } from "../pages/Portfolio";
 import Admin from "../pages/Admin";
+import { Children } from "react";
+import Users from "../pages/Users";
 
 export const routes = [
   {
@@ -49,7 +51,11 @@ export const routes = [
     element: <Register />,
   },
   {
-    path: "/Admin",
-    element: <Admin/>
-  }
+    path: "/Admin/",
+    element: <Admin />,
+  },
+  {
+    path: "/Admin/Users",
+    element: <Users />,
+  },
 ];

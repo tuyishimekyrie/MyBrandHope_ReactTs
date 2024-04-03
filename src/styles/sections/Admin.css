@@ -7,6 +7,7 @@
 .containers {
   background-color: #0e1227;
   display: flex;
+  flex-direction: row;
   height: 100vh;
 }
 a {
