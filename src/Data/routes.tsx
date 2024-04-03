@@ -9,8 +9,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import { Portfolio } from "../pages/Portfolio";
 import Admin from "../pages/Admin";
-import { Children } from "react";
 import Users from "../pages/Users";
+import Emails from "../pages/Emails";
 
 export const routes = [
   {
@@ -57,5 +57,9 @@ export const routes = [
   {
     path: "/Admin/Users",
     element: <Users />,
+  },
+  {
+    path: "/Admin/Emails",
+    element: <Emails />,
   },
 ];
