@@ -3,13 +3,17 @@ import { About } from "../pages/About";
 import { Blog } from "../pages/Blog";
 import { Blogs } from "../pages/Blogs";
 import { Contact } from "../pages/Contact";
+import Error from "../pages/Error";
 import { Home } from "../pages/Home";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 import { Portfolio } from "../pages/Portfolio";
 
 export const routes = [
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
   },
   {
     path: "/Home",
@@ -34,5 +38,13 @@ export const routes = [
   {
     path: "/Contact",
     element: <Contact />,
-  }
+  },
+  {
+    path: "/Login",
+    element: <Login />,
+  },
+  {
+    path: "/Register",
+    element: <Register />,
+  },
 ];
