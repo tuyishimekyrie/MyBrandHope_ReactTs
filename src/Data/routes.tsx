@@ -8,6 +8,7 @@ import { Home } from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import { Portfolio } from "../pages/Portfolio";
+import Admin from "../pages/Admin";
 
 export const routes = [
   {
@@ -47,4 +48,8 @@ export const routes = [
     path: "/Register",
     element: <Register />,
   },
+  {
+    path: "/Admin",
+    element: <Admin/>
+  }
 ];
