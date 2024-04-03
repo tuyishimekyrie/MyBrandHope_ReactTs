@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import "../styles/sections/Emails.css";
 import "../styles/sections/Users.css";
 // import "../styles/sections/Admin.css";
 const Emails = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const handleMenuOpen = () => {
+    console.log("clicked");
+    setMenuOpen(!menuOpen);
+    console.log(menuOpen);
+  };
   return (
     <div className="Container">
-      <Sidebar />
+      <Sidebar state={menuOpen} setState={setMenuOpen} />
       <div className="users-main">
         <div className="user-header">
           <h1>Emails</h1>
-          <button className="menu">Menu</button>
+          <button className="menu" onClick={handleMenuOpen}>
+            Menu
+          </button>
         </div>
         <div className="scrollable">
           <div className="emails">

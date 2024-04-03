@@ -11,6 +11,7 @@ import { Portfolio } from "../pages/Portfolio";
 import Admin from "../pages/Admin";
 import Users from "../pages/Users";
 import Emails from "../pages/Emails";
+import Projects from "../pages/Projects";
 
 export const routes = [
   {
@@ -61,5 +62,9 @@ export const routes = [
   {
     path: "/Admin/Emails",
     element: <Emails />,
+  },
+  {
+    path: "/Admin/Projects",
+    element: <Projects />,
   },
 ];
