@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import likeImage from "../assets/Facebook Like.png";
 import commentImage from "../assets/Topic.png";
 
-interface BlogPost {
+export interface BlogPost {
   comments: unknown[]; 
   commentsCount: number;
   desc: string;
@@ -70,7 +70,7 @@ export const Blogs = () => {
                 <img src={commentImage} alt="Topic" />
               </div>
             </div>
-            <Link to="/Blog">
+            <Link to={"/Blog" + "/" + blog._id}>
               <button>Read More</button>
             </Link>
           </div>

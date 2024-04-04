@@ -37,7 +37,7 @@ export const routes = [
     element: <Blogs />,
   },
   {
-    path: "/Blog",
+    path: "/Blog/:id",
     element: <Blog />,
   },
   {

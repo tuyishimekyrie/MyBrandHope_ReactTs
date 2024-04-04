@@ -16,7 +16,6 @@ const Admin = () => {
     setMenuOpen(!menuOpen);
     console.log(menuOpen);
   };
-  // const handleMenuClose = () => {};
   return (
     <div className="containers">
       <Sidebar state={menuOpen} setState={setMenuOpen} />

@@ -1,8 +1,44 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/sections/Login.css";
 import "../styles/sections/Register.css";
-
+import { SubmitHandler, useForm } from "react-hook-form";
+type Inputs = {
+  email: string;
+  password: string;
+};
 const Login = () => {
+  const navigate = useNavigate();
+  const { register, handleSubmit, reset } = useForm<Inputs>();
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      const requestBody = JSON.stringify({
+        email: data.email,
+        password: data.password,
+      });
+      const response = await fetch(
+        "https://mybrandbackend-q8gq.onrender.com/api/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: requestBody,
+        }
+      );
+      const responseData = await response.json();
+      console.log(responseData.isAdmin);
+      localStorage.setItem("token-admin", JSON.stringify(responseData));
+      if (responseData.isAdmin) {
+        console.log("Admin Logged in");
+        navigate("/Admin");
+        return;
+      }
+      navigate("/");
+      reset();
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
   return (
     <div className="container">
       <div className="container-quote">
@@ -20,14 +56,14 @@ const Login = () => {
       </div>
       <div className="container-register">
         <h1>Sign In</h1>
-        <form className="formLogin">
+        <form className="formLogin" onSubmit={handleSubmit(onSubmit)}>
           <div className="inputs">
             <label>Email</label>
             <input
               type="text"
-              name="email"
               id="email"
               placeholder="Enter your Email"
+              {...register("email")}
             />
           </div>
 
@@ -35,9 +71,9 @@ const Login = () => {
             <label>Password</label>
             <input
               type="password"
-              name="password"
               id="password"
               placeholder="Enter your password"
+              {...register("password")}
             />
           </div>
           <Link to="./forgot.html" className="buttons pass">
@@ -45,21 +81,19 @@ const Login = () => {
           </Link>
           <div className="message"></div>
           <div className="btns">
-            <a href="" className="button">
-              Sign In
-            </a>
+            <button className="button">Sign In</button>
             <button className="registerGoogle">
               <img src="../assests/Google.png" alt="" />
               Sign In with Google
             </button>
           </div>
         </form>
-        <p>
+        {/* <p>
           Log in as admin{" "}
           <Link className="reg" to="/adminLogin">
             <span>Sign in</span>
           </Link>
-        </p>
+        </p> */}
         <p>
           Don't have an account{" "}
           <Link className="reg" to="/Register">
