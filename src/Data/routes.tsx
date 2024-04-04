@@ -12,6 +12,7 @@ import Admin from "../pages/Admin";
 import Users from "../pages/Users";
 import Emails from "../pages/Emails";
 import Projects from "../pages/Projects";
+import BlogsPage from "../pages/BlogsPage";
 
 export const routes = [
   {
@@ -66,5 +67,9 @@ export const routes = [
   {
     path: "/Admin/Projects",
     element: <Projects />,
+  },
+  {
+    path: "/Admin/Blogs",
+    element: <BlogsPage />,
   },
 ];

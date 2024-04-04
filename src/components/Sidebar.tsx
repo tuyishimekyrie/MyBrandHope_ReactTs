@@ -1,4 +1,3 @@
-import React from "react";
 import Multiply from "../assets/Multiply.png";
 import logo from "../assets/Logo.png";
 import layout from "../assets/layout-dashboard.png";
@@ -18,39 +17,39 @@ const Sidebar = ({
   setState: (value: boolean) => void;
 }) => {
   console.log(state);
-    const handleClose = () => {
-      setState(!state)
+  const handleClose = () => {
+    setState(!state);
   };
   return (
     <div className={state ? "sidebar active" : "sidebar"}>
       <div className="mobile-nav" style={{ display: state ? "flex" : "none" }}>
-        <img src={Multiply} alt="" onClick={handleClose}/>
+        <img src={Multiply} alt="" onClick={handleClose} />
       </div>
       <div className="logo">
         <img src={logo} alt="" />
       </div>
       <div className="links ">
-        <a href="./HomeDashboard.html" className="link active">
+        <a href="/Admin" className="link active">
           <img src={layout} alt="" />
           <p>Dashboard</p>
         </a>
-        <a href="./UserPage.html" className="link ">
+        <a href="/Admin/Users" className="link ">
           <img src={member} alt="" />
           <p>Users</p>
         </a>
-        <a href="./EmailsPage.html" className="link">
+        <a href="/Admin/Emails" className="link">
           <img src={letter} alt="" />
           <p>Emails</p>
         </a>
-        <a href="./ProjectsPage.html" className="link">
+        <a href="/Admin/Projects" className="link">
           <img src={outline} alt="" />
           <p>Projects</p>
         </a>
-        <a href="./BlogsPage.html" className="link">
+        <a href="/Admin/Blogs" className="link">
           <img src={page} alt="" />
           <p>Blogs</p>
         </a>
-        <a href="./login.html" className="link logout">
+        <a href="/login" className="link logout">
           <img src={logout} alt="" />
           <p>Logout</p>
         </a>
