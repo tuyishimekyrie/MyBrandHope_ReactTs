@@ -8,6 +8,7 @@ import page from "../assets/Page.png";
 import logout from "../assets/Logout Rounded.png";
 import ctn from "../assets/ctn.png";
 import "../styles/sections/Admin.css";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = ({
   state,
@@ -29,30 +30,50 @@ const Sidebar = ({
         <img src={logo} alt="" />
       </div>
       <div className="links ">
-        <a href="/Admin" className="link active">
+        <NavLink
+          to="/Admin"
+          className={({ isActive }) => (isActive ? "link active" : "link")}
+        >
           <img src={layout} alt="" />
           <p>Dashboard</p>
-        </a>
-        <a href="/Admin/Users" className="link ">
+        </NavLink>
+        <NavLink
+          to="/Admin/Users"
+          className={({ isActive }) => (isActive ? "link active" : "link")}
+        >
           <img src={member} alt="" />
           <p>Users</p>
-        </a>
-        <a href="/Admin/Emails" className="link">
+        </NavLink>
+        <NavLink
+          to="/Admin/Emails"
+          className={({ isActive }) => (isActive ? "link active" : "link")}
+        >
           <img src={letter} alt="" />
           <p>Emails</p>
-        </a>
-        <a href="/Admin/Projects" className="link">
+        </NavLink>
+        <NavLink
+          to="/Admin/Projects"
+          className={({ isActive }) => (isActive ? "link active" : "link")}
+        >
           <img src={outline} alt="" />
           <p>Projects</p>
-        </a>
-        <a href="/Admin/Blogs" className="link">
+        </NavLink>
+        <NavLink
+          to="/Admin/Blogs"
+          className={({ isActive }) => (isActive ? "link active" : "link")}
+        >
           <img src={page} alt="" />
           <p>Blogs</p>
-        </a>
-        <a href="/login" className="link logout">
+        </NavLink>
+        <NavLink
+          to="/login"
+          className={({ isActive }) =>
+            isActive ? "link logout active" : "link logout"
+          }
+        >
           <img src={logout} alt="" />
           <p>Logout</p>
-        </a>
+        </NavLink>
       </div>
       <div className="logger">
         <img src={ctn} alt="" />

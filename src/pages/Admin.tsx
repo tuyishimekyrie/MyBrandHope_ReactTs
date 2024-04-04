@@ -21,8 +21,8 @@ const Admin = () => {
     <div className="containers">
       <Sidebar state={menuOpen} setState={setMenuOpen} />
 
-      <div className="main">
-        <div className="header">
+      <div className="mains">
+        <div className="headers">
           <div className="info">
             <p>tuyishimehope01@gmail.com</p>
             <h3>Tuyishime Hope</h3>

@@ -2,13 +2,16 @@
   text-align:center;
   padding: 2rem   1.5rem;
 }
-.blogs {
+.blogsElement {
   padding: 2rem 4.25rem;
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
+  flex-direction: row;
+  
 }
-.blog {
+.blogElement {
+  /* flex-direction: column; */
   border: 1px solid rgb(255, 255, 255, 0.5);
   /* z-index:-10; */
   border-radius: 1rem;
@@ -19,15 +22,15 @@
 }
 
 
-.blog .img {
+.blogElement .img {
   width: 380px;
   height: 200px;
   object-fit:cover;
 }
-.blog h3 {
+.blogElement h3 {
     padding: 1rem;
 }
-.blog p {
+.blogElement p {
   padding: 0 1rem 1rem 1rem;
   /* padding-left: 0; */
   text-align:left;
@@ -38,15 +41,15 @@
   gap: 2rem;
   padding: 1rem 0;
 }
-.likes {
+.likeCount {
   display: flex;
   /* align-items: center; */
 }
-.likes img {
+.likeCount img {
   height: 1.5rem;
   cursor: pointer;
 }
- .likes img:hover {
+ .likeCount img:hover {
   /* background-color:#334155; */
   border-radius: 5rem;
 } 
@@ -56,7 +59,7 @@
 .likesCounts:hover {
   cursor: pointer
 }
-.blog button {
+.blogElement button {
   border: none;
   padding: 0.85rem 2rem;
   border-radius: 0.5rem;
@@ -65,19 +68,19 @@
   margin: 1rem;
   margin-left: 6.5vw;
 }
-.blog button:hover{
+.blogElement button:hover{
     cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {
-  .blogs {
+  .blogsElement {
   padding: 2rem 4.5rem;
   display: flex;
   justify-content:center;
   gap: 2rem;
   flex-wrap: wrap;
 }
-.blog {
+.blogElement {
   border: 1px solid rgb(255, 255, 255, 0.5);
   z-index:-10;
   border-radius: 1rem;
@@ -85,7 +88,7 @@
   overflow: hidden;
   position: relative;
 }
-.blog button {
+.blogElement button {
   font-size: 1rem;
   border: none;
   padding: 0.85rem 2rem;
@@ -95,10 +98,10 @@
   /* margin: 1rem; */
   margin-left: 15vw;
 }
-.blog button:hover{
+.blogElement button:hover{
     cursor: pointer;
 }
-.blog .img {
+.blogElement .img {
   width: 100%;
   height: 200px;
   object-fit:cover;
@@ -106,14 +109,14 @@
 }
 
 @media only screen and (max-width: 468px) {
-  .blogs {
+  .blogsElement {
   padding: 2rem 2rem;
   display: flex;
   justify-content:center;
   gap: 2rem;
   flex-wrap: wrap;
 }
-.blog {
+.blogElement {
   border: 1px solid rgb(255, 255, 255, 0.5);
   z-index:-10;
   border-radius: 1rem;
@@ -121,7 +124,7 @@
   overflow: hidden;
   position: relative;
 }
-.blog button {
+.blogElement button {
   font-size: .8rem;
   border: none;
   padding: 0.85rem 2rem;
@@ -131,10 +134,10 @@
   /* margin: 1rem; */
   margin-left: 15vw;
 }
-.blog button:hover{
+.blogElement button:hover{
     cursor: pointer;
 }
-.blog .img {
+.blogElement .img {
   width: 100%;
   /* height: 200px; */
   object-fit:cover;

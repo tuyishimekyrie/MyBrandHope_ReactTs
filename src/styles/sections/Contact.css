@@ -31,6 +31,7 @@
 
 .form {
 width: 35vw;
+border: none;
 }
 .form div{
     display: flex;

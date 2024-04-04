@@ -186,6 +186,7 @@ footer::after {
 }
 .footer-content .links {
   display: flex;
+  flex-direction:row;
   /* align-items: center; */
   justify-content: space-between;
   gap: 5rem;
@@ -223,9 +224,11 @@ footer::after {
   gap: 0.5rem;
 }
 
-.address .email {
+.address .emails {
   display: flex;
+  flex-direction:row;
   gap: 0.5rem;
+  padding: 0;
   align-items: center;
 }
 
@@ -299,9 +302,11 @@ footer::after {
     filter: blur(80px);
     z-index: -1;
   }
-  .email span {
-    word-wrap: break-word;
+  .emails span {
+    word-
+    flex-direction:row;wrap: break-word;
     font-size: 3.5vw;
+    padding: 0;
   }
   .footer-content .rights {
     text-align: center;

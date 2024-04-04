@@ -101,7 +101,7 @@ a {
   height: 18vh;
 }
 
- .header {
+ .headers {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -130,7 +130,7 @@ a {
   gap: 1.5rem;
 }
 
-.header .user img {
+.headers .user img {
   width: 3vw;
 }
 .user img:nth-child(1) {
@@ -183,6 +183,7 @@ a {
 .row2 {
     display: flex;
     gap: 10vw;
+    align-items:center;
     justify-content: space-between;
 }
 .row1 div {
@@ -294,7 +295,7 @@ a {
   .menu button:hover {
     color: #58cdff;
   }
-  .header {
+  .headers {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -304,10 +305,10 @@ a {
     border-bottom: 1px solid #131366;
     gap: 1.2rem;
   }
-  .header  .info p {
+  .headers  .info p {
     font-size: 1rem;
   }
-   .header  .info h3 {
+   .headers  .info h3 {
     font-size: .85rem;
   }
   #curve_chart {
@@ -436,7 +437,7 @@ a {
   .menu button:hover {
     color: #58cdff;
   }
-  .header {
+  .headers {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -446,10 +447,10 @@ a {
     border-bottom: 1px solid #131366;
     gap: 1.5rem;
   }
-  .header  .info p {
+  .headers  .info p {
     font-size: .85rem;
   }
-   .header  .info h3 {
+   .headers  .info h3 {
     font-size: .8rem;
   }
   .user img:nth-child(1) {

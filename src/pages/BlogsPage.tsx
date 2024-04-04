@@ -16,7 +16,7 @@ const BlogsPage = () => {
     setModalOpen(!modalOpen);
   };
   return (
-    <div className="Container">
+    <div className="containers">
       <Sidebar state={menuOpen} setState={setMenuOpen} />
       <div className="users-main">
         <div className="user-header">

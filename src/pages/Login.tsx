@@ -40,9 +40,9 @@ const Login = () => {
               placeholder="Enter your password"
             />
           </div>
-          <a href="./forgot.html" className="button pass">
+          <Link to="./forgot.html" className="buttons pass">
             Forget Password ?
-          </a>
+          </Link>
           <div className="message"></div>
           <div className="btns">
             <a href="" className="button">
