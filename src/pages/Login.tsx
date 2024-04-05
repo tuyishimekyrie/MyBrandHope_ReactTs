@@ -2,12 +2,15 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/sections/Login.css";
 import "../styles/sections/Register.css";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { login } from "../state/auth/auth";
 type Inputs = {
   email: string;
   password: string;
 };
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -33,7 +36,8 @@ const Login = () => {
       const responseData = await response.json();
       console.log(responseData.isAdmin);
       if (response.ok) {
-        localStorage.setItem("token-admin", JSON.stringify(responseData));
+        dispatch(login(responseData));
+        // localStorage.setItem("token-admin", JSON.stringify(responseData));
       }
       if (responseData.isAdmin) {
         console.log("Admin Logged in");

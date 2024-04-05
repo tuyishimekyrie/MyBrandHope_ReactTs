@@ -5,9 +5,11 @@ import "../styles/sections/Blog.css";
 import likeImage from "../assets/Facebook Like.png";
 import commentImage from "../assets/Topic.png";
 import personImage from "../assets/A-removebg-preview.png";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BlogPost } from "./Blogs";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../state/store";
 // interface Comment {
 //   id: string;
 //   commenterName: string;
@@ -19,7 +21,29 @@ import { useParams } from "react-router-dom";
 export const Blog = () => {
   const [blogsData, setBlogsData] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(false);
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.auth.isAuthenticated
+  );
+  const [token, setToken] = useState<string | null>();
+  const commentRef = useRef<HTMLInputElement>(null);
 
+  console.log(isAuthenticated);
+    useEffect(() => {
+      const fetchTokenFromLocalStorage = async () => {
+        const tokenData = localStorage.getItem("token-admin");
+        if (tokenData) {
+          try {
+            // const  token= JSON.parse(tokenData);
+            console.log(tokenData);
+            setToken(tokenData);
+          } catch (error) {
+            console.error("Error processing token data:", error);
+          }
+        }
+      };
+
+      fetchTokenFromLocalStorage();
+    }, []);
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -41,6 +65,56 @@ export const Blog = () => {
   const { id } = useParams();
   const specificBlog = blogsData.find((blog) => blog._id === id);
   console.log(specificBlog);
+  console.log(token)
+  const handleSubmitComment = async () => {
+    if (commentRef.current) {
+      const commentValue = commentRef.current.value;
+      console.log("Comment submitted:", commentValue);
+      // setLoading(true);
+      try {
+        const data = await fetch(
+          `https://mybrandbackend-q8gq.onrender.com/api/blogs/${id}/comments`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json", 
+              "x-auth-token": token || "",
+            },
+            body: JSON.stringify({ comment: commentRef.current.value }), 
+          }
+        );
+
+        const response = await data.json();
+        console.log(response);
+          commentRef.current.value = "";
+        // setBlogsData(response);
+        // setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+  };
+  const handleSendLike = async () => {
+    try {
+      const data = await fetch(
+        `https://mybrandbackend-q8gq.onrender.com/api/blogs/likes/${id}/like`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": token || "",
+          }
+        }
+      );
+
+      const response = await data.json();
+      console.log(response);
+      // setBlogsData(response);
+      // setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
   return (
     <div className="Home App">
       <Header />
@@ -60,7 +134,7 @@ export const Blog = () => {
           <div className="features">
             <div className="likes">
               <p>{specificBlog?.likesCount}</p>
-              <img src={likeImage} />
+              <img src={likeImage} onClick={handleSendLike}/>
             </div>
             <div className="likes">
               <p>{specificBlog?.commentsCount}</p>
@@ -74,7 +148,9 @@ export const Blog = () => {
               name="comment"
               id="comment"
               placeholder="type a comment"
+              ref={commentRef}
             />
+            <img src={likeImage} alt="" onClick={handleSubmitComment} />
           </div>
           <div className="comments-section">
             {specificBlog &&

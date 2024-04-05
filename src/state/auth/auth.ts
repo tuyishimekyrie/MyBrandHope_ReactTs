@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface User {
   token: string | null;
-  isAdmin?: boolean;
+  isAdmin: boolean;
 }
 
 interface AuthState {
@@ -24,14 +24,14 @@ const userSlice = createSlice({
       state.user = action.payload;
       // Store the token and isAdmin in localStorage
       localStorage.setItem("token-admin", action.payload.token || "");
-    //   localStorage.setItem("isAdmin", action.payload.isAdmin.toString());
+      localStorage.setItem("isAdmin", action.payload.isAdmin.toString());
     },
     logout: (state) => {
       state.isAuthenticated = false;
       state.user = null;
       // Clear token and isAdmin from localStorage on logout
       localStorage.removeItem("token-admin");
-    //   localStorage.removeItem("isAdmin");
+      localStorage.removeItem("isAdmin");
     },
   },
 });
