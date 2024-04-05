@@ -12,7 +12,7 @@ interface Email {
 }
 const Emails = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-    const [emailsData, setEmailsData] = useState<Email[]>();
+  const [emailsData, setEmailsData] = useState<Email[]>();
   const [token, setToken] = useState<string | null>();
   const handleMenuOpen = () => {
     console.log("clicked");
