@@ -27,11 +27,23 @@ const BlogsPage = () => {
   const [token, setToken] = useState<string | null>();
   const [blogsData, setBlogsData] = useState<BlogsDatas | null>(null);
   const [editedId,SetEditedId] = useState<string>();
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   reset
+  // } = useForm<Inputs>();
+  //   const { register, handleSubmit, reset } = useForm<Inputs>();
   const {
-    register,
-    handleSubmit,
-    reset
+    register: registerCreate,
+    handleSubmit: handleSubmitCreate,
+    reset: resetCreate,
   } = useForm<Inputs>();
+  const {
+    register: registerUpdate,
+    handleSubmit: handleSubmitUpdate,
+    reset: resetUpdate,
+  } = useForm<Inputs>();
+
   // const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
   useEffect(() => {
     const fetchTokenFromLocalStorage = async () => {
@@ -72,11 +84,9 @@ const BlogsPage = () => {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     console.log(data);
 
-    // Convert FileList to File object
     const imageFile = data.image[0];
     console.log(imageFile);
 
-    // Send data to your server
     const formData = new FormData();
     formData.append("image", imageFile);
     formData.append("header", data.title);
@@ -96,7 +106,7 @@ const BlogsPage = () => {
       const data = response.json();
       console.log(data);
       if (response.ok) {
-        reset();
+        resetCreate();
         fetchUpdatedBlogs();
       }
     } catch (error) {
@@ -114,10 +124,6 @@ const BlogsPage = () => {
       const reader = new FileReader();
       reader.onloadend = () => {
         const base64String = reader.result as string;
-        // Set base64 string to form field
-        // For example, you can set it to a hidden input field
-        // Or you can directly set it to the state if you want to preview the image
-        // For now, let's just log the base64 string
         console.log(base64String);
       };
       reader.readAsDataURL(file);
@@ -176,7 +182,7 @@ const BlogsPage = () => {
       );
 
       if (response.ok) {
-        reset();
+        resetUpdate();
         setModalOpen(false)
         fetchUpdatedBlogs();
       } else {
@@ -204,6 +210,8 @@ const BlogsPage = () => {
       console.error("Error fetching updated blogs:", error);
     }
   };
+
+
   return (
     <div className="containers">
       <Sidebar state={menuOpen} setState={setMenuOpen} />
@@ -215,14 +223,14 @@ const BlogsPage = () => {
           </button>
         </div>
         <div className="blog-container">
-          <form className="formCreate" onSubmit={handleSubmit(onSubmit)}>
+          <form className="formCreate" onSubmit={handleSubmitCreate(onSubmit)}>
             <h1>Create a blog</h1>
             <div className="inputs">
               <label>Image</label>
               <input
                 type="file"
                 id="image"
-                {...register("image")}
+                {...registerCreate("image")}
                 onChange={handleImageChange}
               />
             </div>
@@ -232,7 +240,7 @@ const BlogsPage = () => {
                 type="text"
                 id="title"
                 placeholder="Type a headline"
-                {...register("title")}
+                {...registerCreate("title")}
               />
             </div>
             <div className="inputs">
@@ -242,7 +250,7 @@ const BlogsPage = () => {
                 cols={30}
                 rows={3}
                 placeholder="Type a description"
-                {...register("desc")}
+                {...registerCreate("desc")}
               ></textarea>
             </div>
             <p className="message"></p>
@@ -315,7 +323,7 @@ const BlogsPage = () => {
         </div>
       </div>
       <div className={modalOpen ? "modal active" : "modal"}>
-        <form className="formUpdate" onSubmit={handleSubmit(onSubmitUpdate)}>
+        <form className="formUpdate" onSubmit={handleSubmitUpdate(onSubmitUpdate)}>
           <div className="head">
             <h1>Update a blog</h1>
             <img
@@ -327,21 +335,21 @@ const BlogsPage = () => {
           </div>
           <div className="inputs">
             <label>Image</label>
-            <input type="file" id="images" {...register("image")} />
+            <input type="file" id="images" {...registerUpdate("image")} />
           </div>
           <div className="inputs">
             <label>Headline</label>
             <input
               type="text"
               id="titles"
-              {...register("title")}
+              {...registerUpdate("title")}
               placeholder="Type a headline"
             />
           </div>
           <div className="inputs">
             <label>Description</label>
             <textarea
-              {...register("desc")}
+              {...registerUpdate("desc")}
               id="descriptions"
               cols={30}
               rows={3}

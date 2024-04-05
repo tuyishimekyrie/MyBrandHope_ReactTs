@@ -5,10 +5,12 @@ import member from "../assets/Member.png";
 import letter from "../assets/Letter.png";
 import outline from "../assets/Outline.png";
 import page from "../assets/Page.png";
-import logout from "../assets/Logout Rounded.png";
+import logouts from "../assets/Logout Rounded.png";
 import ctn from "../assets/ctn.png";
 import "../styles/sections/Admin.css";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../state/auth/auth";
 
 const Sidebar = ({
   state,
@@ -18,6 +20,7 @@ const Sidebar = ({
   setState: (value: boolean) => void;
 }) => {
   console.log(state);
+  const dispatch = useDispatch();
   const handleClose = () => {
     setState(!state);
   };
@@ -70,8 +73,9 @@ const Sidebar = ({
           className={({ isActive }) =>
             isActive ? "link logout active" : "link logout"
           }
+          onClick={() => dispatch(logout())}
         >
-          <img src={logout} alt="" />
+          <img src={logouts} alt="" />
           <p>Logout</p>
         </NavLink>
       </div>

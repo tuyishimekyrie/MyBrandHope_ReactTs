@@ -8,9 +8,12 @@ import ellips from "../assets/Ellipsis.png";
 import Email from "../assets/Email.png";
 import project from "../assets/Project.png";
 import { useState } from "react";
-
+import { Link } from "react-router-dom"
+import { logout } from "../state/auth/auth";
+import { useDispatch } from "react-redux";
 const Admin = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const dispatch = useDispatch();
   const handleMenuOpen = () => {
     console.log("clicked");
     setMenuOpen(!menuOpen);
@@ -29,7 +32,7 @@ const Admin = () => {
           <div className="user">
             <img src={bell} alt="" />
             <img src={MyPicture} alt="" className="img" />
-            <a className="logouts">Logout</a>
+            <Link className="logouts" to={"/"} onClick={() => dispatch(logout())}>Logout</Link>
             <div className="link menu" id="logout">
               <button className="menu">
                 <img src={Menu} alt="" onClick={handleMenuOpen} />

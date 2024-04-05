@@ -1,4 +1,13 @@
-import { Header,Footer, CallToAction,Testimonial,Platforms,Projects,Skills,AboutMe } from "../components/index";
+import {
+  Header,
+  Footer,
+  CallToAction,
+  Testimonial,
+  Platforms,
+  Projects,
+  Skills,
+  AboutMe,
+} from "../components/index";
 import "../styles/index.css";
 import "../styles/sections/Home.css";
 import Hero from "../assets/herotest.png";

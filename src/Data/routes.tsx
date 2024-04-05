@@ -13,6 +13,7 @@ import Users from "../pages/Users";
 import Emails from "../pages/Emails";
 import Projects from "../pages/Projects";
 import BlogsPage from "../pages/BlogsPage";
+import ProtectedRoutes from "../routers/ProtectedRoutes";
 
 export const routes = [
   {
@@ -54,22 +55,67 @@ export const routes = [
   },
   {
     path: "/Admin/",
-    element: <Admin />,
+    element: (
+      <ProtectedRoutes>
+        <Admin />
+      </ProtectedRoutes>
+    ),
   },
   {
     path: "/Admin/Users",
-    element: <Users />,
+    element: (
+      <ProtectedRoutes>
+        <Users />
+      </ProtectedRoutes>
+    ),
   },
   {
     path: "/Admin/Emails",
-    element: <Emails />,
+    element: (
+      <ProtectedRoutes>
+        <Emails />
+      </ProtectedRoutes>
+    ),
   },
   {
     path: "/Admin/Projects",
-    element: <Projects />,
+    element: (
+      <ProtectedRoutes>
+        <Projects />
+      </ProtectedRoutes>
+    ),
   },
   {
     path: "/Admin/Blogs",
-    element: <BlogsPage />,
+    element: (
+      <ProtectedRoutes>
+        <BlogsPage />
+      </ProtectedRoutes>
+    ),
   },
+  // {
+  //   element: <ProtectedRoutes />,
+  //   children: [
+  //     {
+  //       path: "/Admin",
+  //       element: <Admin />,
+  //     },
+  //     {
+  //       path: "/Admin/Users",
+  //       element: <Users />,
+  //     },
+  //     {
+  //       path: "/Admin/Emails",
+  //       element: <Emails />,
+  //     },
+  //     {
+  //       path: "/Admin/Projects",
+  //       element: <Projects />,
+  //     },
+  //     {
+  //       path: "/Admin/Blogs",
+  //       element: <BlogsPage />,
+  //     },
+  //   ],
+  // },
 ];
