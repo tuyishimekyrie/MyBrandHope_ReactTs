@@ -5,14 +5,15 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import likeImage from "../assets/Facebook Like.png";
 import commentImage from "../assets/Topic.png";
+import apiClient from "../services/api-client";
 
 export interface BlogPost {
-  comments: unknown[]; 
+  comments: unknown[];
   commentsCount: number;
   desc: string;
   header: string;
   img: string;
-  likedBy: string[]; 
+  likedBy: string[];
   likesCount: number;
   __v: number;
   _id: string;
@@ -23,15 +24,16 @@ export const Blogs = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const controller = new AbortController();
     const fetchData = async () => {
       setLoading(true);
       try {
-        const data = await fetch(
-          "https://mybrandbackend-q8gq.onrender.com/api/blogs"
+        const response = await apiClient.get<BlogPost[]>(
+          "https://mybrandbackend-q8gq.onrender.com/api/blogs",
+          { signal: controller.signal }
         );
-        const response = await data.json();
         console.log(response);
-        setBlogsData(response);
+        setBlogsData(response.data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -39,6 +41,7 @@ export const Blogs = () => {
     };
 
     fetchData();
+    return () => controller.abort();
   }, []);
   return (
     <div className="Home">

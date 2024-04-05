@@ -2,62 +2,63 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import "../styles/sections/Home.css";
 import "../styles/sections/Contact.css";
-import Map from "../assets/map.png"
+import Map from "../assets/map.png";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { string, z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect, useState } from "react";
+import apiClient from "../services/api-client";
 
-type Inputs = {
-  email: string;
-  message: string;
-};
+const schema = z.object({
+  email: string().min(6, { message: "Email must be in a proper format" }),
+  message: string().min(2, { message: "Minimum length are 2" }),
+});
+type Inputs = z.infer<typeof schema>;
 export const Contact = () => {
   const {
     register,
     handleSubmit,
     watch,
+    reset,
+    formState: { isSubmitting, errors },
+  } = useForm<Inputs>({ resolver: zodResolver(schema) });
+  
+  const [controller, setController] = useState<AbortController | null>(null);
 
-    reset
-  } = useForm<Inputs>();
+  useEffect(() => {
+    const abortController = new AbortController();
+    setController(abortController);
+
+    return () => {
+      abortController.abort();
+    };
+  }, []);
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-       const requestBody = JSON.stringify({
-         email: data.email,
-         message: data.message,
-       });
-      const response = await fetch(
-        "https://mybrandbackend-q8gq.onrender.com/api/messages/create",
+      const requestBody = JSON.stringify({
+        email: data.email,
+        message: data.message,
+      });
+      const response = await apiClient.post(
+        "/messages/create",
+        requestBody,
         {
-          method: "POST",
+          signal : controller?.signal,
           headers: {
             "Content-Type": "application/json",
           },
-          body: requestBody,
         }
       );
-      const responseData = await response.json();
-      console.log(responseData);
+      console.log(response);
       reset();
     } catch (error) {
       console.error("Error:", error);
     }
   };
 
-  console.log(watch("email")); // watch input value by passing the name of it
-  // const [formData,setFormData] = useState({});
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const data = await fetch(
-  //         "https://mybrandbackend-q8gq.onrender.com/api/blogs"
-  //       );
-  //       const response = await data.json();
-  //       console.log(response);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
 
-  //   fetchData();
-  // }, []);
+  console.log(watch("email"));
+
   return (
     <div className="Home App">
       <Header />
@@ -95,10 +96,16 @@ export const Contact = () => {
                 required
                 {...register("message")}
               ></textarea>
-
-              <span className="error"></span>
+              {errors.email && (
+                <span className="error">{errors.email.message}</span>
+              )}
+              {errors.message && (
+                <span className="error">{errors.message.message}</span>
+              )}
             </div>
-            <button className="btn-submit">submit</button>
+            <button className="btn-submit" disabled={isSubmitting}>
+              {isSubmitting ? "Sending..." : "Send"}
+            </button>
           </form>
         </div>
         <div className="location">
