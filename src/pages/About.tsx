@@ -1,9 +1,11 @@
-import { Header } from "../components/Header";
-import { Footer } from "../components/Footer";
+import {
+  Header,
+  Footer,
+  CallToAction,
+  Platforms,
+  AboutMe,
+} from "../components/index";
 import "../styles/sections/Home.css";
-import AboutMe from "../components/AboutMe";
-import { CallToAction } from "../components/CallToAction";
-import Platforms from "../components/Platforms";
 export const About = () => {
   return (
     <div className="Home App">

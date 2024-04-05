@@ -1,15 +1,8 @@
-import { Header } from "../components/Header";
-import { Footer } from "../components/Footer";
+import { Header,Footer, CallToAction,Testimonial,Platforms,Projects,Skills,AboutMe } from "../components/index";
 import "../styles/index.css";
 import "../styles/sections/Home.css";
 import Hero from "../assets/herotest.png";
 import { Link } from "react-router-dom";
-import { CallToAction } from "../components/CallToAction";
-import AboutMe from "../components/AboutMe";
-import Skills from "../components/Skills";
-import Platforms from "../components/Platforms";
-import Projects from "../components/Projects";
-import Testimonial from "../components/Testimonial";
 
 export const Home = () => {
   return (

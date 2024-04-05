@@ -8,7 +8,12 @@ type Inputs = {
 };
 const Login = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit, reset } = useForm<Inputs>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { isLoading },
+  } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
       const requestBody = JSON.stringify({
@@ -27,18 +32,22 @@ const Login = () => {
       );
       const responseData = await response.json();
       console.log(responseData.isAdmin);
-      localStorage.setItem("token-admin", JSON.stringify(responseData));
+      if (response.ok) {
+        localStorage.setItem("token-admin", JSON.stringify(responseData));
+      }
       if (responseData.isAdmin) {
         console.log("Admin Logged in");
         navigate("/Admin");
         return;
+      } else {
+        navigate("/");
       }
-      navigate("/");
       reset();
     } catch (error) {
       console.error("Error:", error);
     }
   };
+  console.log(isLoading);
   return (
     <div className="container">
       <div className="container-quote">
@@ -81,7 +90,9 @@ const Login = () => {
           </Link>
           <div className="message"></div>
           <div className="btns">
-            <button className="button">Sign In</button>
+            <button className="button" disabled={isLoading}>
+              {isLoading ? "Sending Data...." : "Sign In"}
+            </button>
             <button className="registerGoogle">
               <img src="../assests/Google.png" alt="" />
               Sign In with Google
